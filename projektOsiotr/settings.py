@@ -35,9 +35,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'projektOsiotr.Orders',
-    'rest_framework'
+    'projektOsiotr.orders',
+    'projektOsiotr.gallery',
+    'projektOsiotr.accounts',
+    'rest_framework',
+    'knox',
+
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -115,3 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+
+DROPBOX_OAUTH2_TOKEN = '9vC0Lf2weJAAAAAAAAAAc9fQk4-cajJkxgMWNoQc8D-8S_IIupGKpiFxD_mM91DG'
