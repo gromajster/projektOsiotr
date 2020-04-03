@@ -3,7 +3,7 @@ from idlelib import query
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField, StringRelatedField, PrimaryKeyRelatedField
 
-from projektOsiotr.Orders.models import Fish, FishType, OrderItem, Order
+from projektOsiotr.orders.models import Fish, FishType, OrderItem, Order
 
 
 class FishTypeSerializer(serializers.ModelSerializer):

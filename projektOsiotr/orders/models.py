@@ -15,6 +15,7 @@ class Fish(models.Model):
     latin_name = models.CharField(max_length=100)
     size = models.DecimalField(default=0.00, max_digits=8, decimal_places=2)
     price = models.DecimalField(default=0.00, max_digits=8, decimal_places=2)
+    picture = models.FileField()
     description = models.TextField(default="Opis", max_length=1000)
     stock = models.IntegerField()
 
@@ -29,7 +30,7 @@ class Order(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=100)
     fishes = models.ManyToManyField(Fish, through='OrderItem')
-    cost = models.DecimalField(max_digits=8, decimal_places=2)
+    cost = models.DecimalField(max_digits=8, decimal_places=2) 
 
     def __str__(self):
         return "Zamówienie firmy " + self.company_name
